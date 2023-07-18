@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{% block title%}
+    Welcome
+{%endblock%}
+{% block content%}
+        <div class="poster">
+            <img src="{{post.image.url}}" alt="">
+        </div>
+        <div class="heropage">
+            <div class="inside-heropage">
+                <span>NOW STREAMING</span>
+                <h1>{{post.name}}</h1>
+                <p>{{post.type_1}} | {{post.created}}</p>
+                <div class="btn1">
+                    <a href=""><i class="fas fa-play"></i>Watch Now</a>
+                </div>
+            </div>
+        </div>
+        <h2 id="det">
+            {{post.description}}
+        </h2>
+        <iframe width="1400" height="700" src="{{post.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        {% for comment in comments %}
+        <div class="comment">
+            <p class="info">
+                <b>{{ comment.name }}</b>
+            </p>
+            {{ comment.body|linebreaks }}
+            <p><i>
+                {{comment.created}}
+            </i></p>
+        </div>
+        {% empty %}
+            <p>There are no comments</p>
+        {% endfor %}
+        <a href="{%url 'post_comment' post.slug%}">Add comment</a>
+{% endblock%}

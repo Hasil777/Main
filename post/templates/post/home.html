@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block title%}
+    Home
+{% endblock %}
+{%block content%}
+    <div id="welcome">
+        <h1>
+            Movies, series and more without limits
+        </h1>
+        <h3>
+            See anywhere. You can cancel your subscription at any time.
+        </h3>
+        <h3>
+            Ready to watch? Enter your email address to subscribe or renew your subscription.
+        </h3>
+        <h3>
+            <a href="{% url 'dashboard'%}">watch now </a>
+        </h3>
+    </div>
+{% endblock content %}

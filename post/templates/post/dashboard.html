@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block title %}
+    Movies
+{% endblock %}
+{% block content%}
+    <header>
+        <div class="nav" id="small_menu">
+            <ul>
+                    <li>
+                        <a href="">Comments</a>
+                    </li>
+            </ul>
+        </div>
+    </header>
+    {% for post in posts%}
+        <div class="hasil">
+            <div class="latest-container">
+                <div class="latest-inside">
+                    <img src="{{post.image.url}}" width="250px" alt="">
+                    <div class="heading1">
+                        <h4>{{post.name}}</h4>
+                        <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                        <h6>{{post.type_1}}</h6>
+                    </div>
+                    <div class="btn2">
+                        <a href="{% url 'post_detail' post.slug%}">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor%}
+{% endblock%}

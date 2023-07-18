@@ -1,0 +1,13 @@
+
+<section class="wrapper">
+    <div class="form signup">
+        <h2>Add a new comment</h2>
+        <form action="{% url 'post_comment' post.slug %}" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <p>
+                <input type="submit" value="Add comment">
+            </p>
+        </form>
+    </div>
+</section>

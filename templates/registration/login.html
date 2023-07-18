@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block title%}
+    Register
+{%endblock%}
+{% load crispy_forms_tags %}  
+{%block content%}
+    <section class="wrapper">
+        <div class="form signup">
+            <header>Login</header>
+            <form method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                {{ form|crispy }}   
+                <input type="submit" value="Login" />
+            </form>
+            <a href="{%url 'register'%}">SingUp</a>
+        </div>
+    </section>
+{%endblock%}
